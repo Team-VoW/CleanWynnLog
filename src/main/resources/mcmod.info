@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "CleanWynnLog",
+    "name": "CleanWynnLog",
+    "description": "Creates a clean log with only dialogue when playing Wynncraft",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "https://voicesofwynn.com/",
+    "updateUrl": "",
+    "authorList": [
+      "kmaxi"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
