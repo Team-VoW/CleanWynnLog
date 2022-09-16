@@ -1,9 +1,7 @@
 package com.voicesofwynn.cleanwynnlog.NeatLog;
 
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.HashSet;
 
 public class NeatLogger {
@@ -27,6 +25,30 @@ public class NeatLogger {
             e.printStackTrace();
         }
 
+        Initialize();
+
+    }
+
+
+    private void Initialize(){
+        //Adds all lines in the file to the HashSet
+        try {
+            FileReader reader = new FileReader(fileName);
+            BufferedReader bufferedReader = new BufferedReader(reader);
+
+            String line;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                if (line.equals(""))
+                    continue;
+
+                addedLines.add(line);
+            }
+            reader.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void ReceivedChat(String message){
@@ -51,7 +73,7 @@ public class NeatLogger {
         }
     }
 
-    private void write(String message){
+    public void write(String message){
         try {
 
             FileWriter fw = new FileWriter(fileName,true); //the true will append the new data
