@@ -34,8 +34,13 @@ ReceiveChatEvent {
 
         LineData lineData = LineFormatter.formatToLineData(msg);
 
+        String message = lineData.getRealLine();
 
-        CleanWynnLog.neatLogger.ReceivedChat(lineData.getRealLine());
+        if (!LineFormatter.isNPCSentLine(message) && !msg.contains("Press SHIFT to continue")){
+            return;
+        }
+
+        CleanWynnLog.neatLogger.ReceivedChat(message);
     }
 
 

@@ -55,7 +55,9 @@ public class NeatLogger {
 
        // if (!message.startsWith("[")) return;
 
-        if (!LineFormatter.isNPCSentLine(message)){
+        //Does not contain dialogue numbers
+        if (!Character.isDigit(message.toCharArray()[1])){
+            write(message + "\n");
             return;
         }
 
